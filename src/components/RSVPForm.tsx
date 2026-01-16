@@ -58,7 +58,7 @@ export default function RSVPForm({ variant = 'hero' }: RSVPFormProps) {
             placeholder="Enter your work email to confirm your attendance"
             required
             disabled={isPending}
-            className={`w-full h-full pl-[79px] pr-4 text-[20px] bg-transparent outline-none font-normal ${
+            className={`w-full h-full pl-[79px] pr-4 text-[20px] bg-transparent outline-none font-medium ${
               isFooterVariant 
                 ? 'text-[rgba(0,0,0,0.7)] placeholder:text-[rgba(0,0,0,0.7)]' 
                 : 'text-[rgba(0,0,0,0.7)] placeholder:text-[rgba(0,0,0,0.4)]'
