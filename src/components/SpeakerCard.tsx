@@ -8,26 +8,26 @@ interface SpeakerCardProps {
 
 export default function SpeakerCard({ name, image, bio }: SpeakerCardProps) {
   return (
-    <div className="flex items-start gap-0">
-      {/* Speaker Image - Size: 340x325, with mask */}
-      <div className="w-[340px] h-[325px] relative rounded-[8px] overflow-hidden flex-shrink-0">
+    <div className="flex flex-col lg:flex-row items-start gap-[20px] md:gap-[30px] lg:gap-0">
+      {/* Speaker Image - Responsive size */}
+      <div className="w-full md:w-[300px] lg:w-[340px] h-[280px] md:h-[300px] lg:h-[325px] relative rounded-[8px] overflow-hidden flex-shrink-0">
         <Image
           src={image}
           alt={name}
           fill
           className="object-cover"
-          sizes="340px"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 300px, 340px"
         />
       </div>
       
-      {/* Speaker Info - Offset from image */}
-      <div className="ml-[58px] pt-[-8px]">
-        {/* Name - Position relative to section */}
-        <h3 className="font-black text-[30px] text-[#0ff] leading-normal mb-[8px]">
+      {/* Speaker Info - Offset from image on desktop, below on mobile */}
+      <div className="lg:ml-[58px] lg:pt-[-8px]">
+        {/* Name - Responsive text size */}
+        <h3 className="font-black text-[22px] md:text-[26px] lg:text-[30px] text-[#0ff] leading-normal mb-[8px] md:mb-[10px] lg:mb-[8px]">
           {name}
         </h3>
-        {/* Bio - Width: ~821px */}
-        <p className="text-[24px] text-white font-medium leading-[35px] max-w-[821px]">
+        {/* Bio - Responsive text size and width */}
+        <p className="text-[16px] md:text-[20px] lg:text-[24px] text-white font-medium leading-[24px] md:leading-[30px] lg:leading-[35px] max-w-full lg:max-w-[821px]">
           {bio}
         </p>
       </div>
