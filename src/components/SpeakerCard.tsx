@@ -27,7 +27,7 @@ export default function SpeakerCard({ name, image, bio }: SpeakerCardProps) {
           {name}
         </h3>
         {/* Bio - Responsive text size and width */}
-        <p className="text-[16px] md:text-[20px] lg:text-[24px] text-white font-medium leading-[24px] md:leading-[30px] lg:leading-[35px] max-w-full lg:max-w-[821px]">
+        <p className="text-[16px] md:text-[20px] text-center md:text-left lg:text-[24px] text-white font-medium leading-[24px] md:leading-[30px] lg:leading-[35px] max-w-full lg:max-w-[821px]">
           {bio}
         </p>
       </div>

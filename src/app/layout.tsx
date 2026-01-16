@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Source_Serif_4 } from "next/font/google";
+
+export const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-source-serif",
+});
+
 
 export const metadata: Metadata = {
   title: "The Skills That Matter Next | Simplilearn Dallas Round Table",
@@ -21,7 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap"
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@1,300,400,500,700,900&display=swap"
           rel="stylesheet"
         />
       </head>

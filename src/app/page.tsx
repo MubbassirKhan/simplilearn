@@ -16,87 +16,119 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-black">
       {/* Hero Section - Height: 693px */}
-      <section className="relative h-[500px] md:h-[600px] lg:h-[693px] w-full max-w-[1440px] mx-auto overflow-hidden bg-black">
+      <section className="relative h-[572px] md:h-[600px] lg:h-[693px] w-full max-w-[430px] md:max-w-[768px] lg:max-w-[1440px] mx-auto overflow-hidden bg-[#D9D9D9]">
         {/* Background Image */}
         <div className="absolute inset-0 w-full h-full">
           <Image
             src={assets.heroBg}
             alt=""
             fill
-            className="object-cover rotate-180"
-            style={{ filter: "blur(0.5px) contrast(1.8)" }}
+            className="object-cover object-left md:object-center rotate-180"
+            style={{ 
+              filter: "blur(0.5px) contrast(1.8)",
+              mixBlendMode: "normal"
+            }}
             priority
+          />
+          {/* Blue gradient overlay on image */}
+          <div 
+            className="absolute inset-0 rotate-180"
+            style={{
+              background: "linear-gradient(287.08deg, rgba(28, 78, 241, 0.45) -11.11%, rgba(26, 60, 182, 0.45) 106.32%)",
+              mixBlendMode: "plus-darker"
+            }}
           />
         </div>
 
-        {/* Black overlay at 40% opacity */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#000040] to-[#020202] opacity-60" />
+        {/* Bottom gradient overlay - mobile specific */}
+        <div 
+          className="absolute left-0 right-0 h-[317px] md:hidden"
+          style={{
+            top: "258px",
+            background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 22.75%, rgba(0, 0, 0, 0.6) 97.16%)"
+          }}
+        />
+        
+        {/* Desktop overlay */}
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-[#000040] to-[#020202] opacity-60" />
 
         {/* Content Container */}
-        <div className="relative z-10 h-full">
+        <div className="relative z-10 h-full flex flex-col">
           {/* Logo - Position: left:100px top:55px */}
-          <div className="absolute left-[20px] md:left-[50px] lg:left-[100px] top-[30px] md:top-[45px] lg:top-[55px] w-[200px] md:w-[250px] lg:w-[300px] h-[66px] md:h-[83px] lg:h-[100px]">
+          <div className="absolute left-[20px] md:left-[50px] lg:left-[100px] top-[30px] md:top-[45px] lg:top-[55px] w-[180px] md:w-[250px] lg:w-[300px] h-[60px] md:h-[83px] lg:h-[100px]">
             <Image
               src={assets.logo}
               alt="Simplilearn"
               fill
-              className="object-contain"
+              className="object-contain object-left"
               priority
             />
           </div>
 
           {/* Invite-Only Badge and Text Container */}
-          <div className="absolute left-[20px] md:left-[50px] lg:left-[100px] top-[140px] md:top-[195px] lg:top-[245px] flex flex-col md:flex-row items-start md:items-center gap-[8px] md:gap-[12px]">
+          <div className="absolute left-[20px] md:left-[50px] lg:left-[100px] top-[110px] md:top-[195px] lg:top-[245px] flex flex-row flex-wrap items-center gap-[8px] md:gap-[12px]">
             {/* Invite-Only Badge */}
-            <div className="bg-[#00FFFF] rounded-[6px] px-[12px] md:px-[16px] py-[8px] md:py-[12px] flex items-center justify-center">
-              <span className="font-bold text-[18px] md:text-[22px] lg:text-[25px] text-[#25286A] leading-none">
+            <div className="bg-[#00FFFF] rounded-[6px] px-[10px] md:px-[16px] py-[6px] md:py-[12px] flex items-center justify-center">
+              <span
+                className="font-black text-[15px] md:text-[22px] lg:text-[25px] leading-none text-[#0d1b3f]"
+                style={{
+                  textShadow:
+                    "1px 1px 0 #00a7d3, -1px 0 0 #004f7a, 0 1px 0 #004f7a, 0 -1px 0 #00a7d3, 1px -1px 0 #004f7a, -1px 1px 0 #004f7a",
+                }}
+              >
                 Invite-Only
               </span>
             </div>
 
             {/* Executive Roundtable Text */}
-            <span className="font-bold text-[16px] md:text-[20px] lg:text-[24px] text-[#00FFFF] leading-none">
+            <span
+              className="text-[15px] md:text-[18px] lg:text-[20px] text-[#00FFFF] leading-[28px] flex items-center"
+              style={{
+                fontFamily: "'Satoshi Variable', 'Satoshi', sans-serif",
+                fontWeight: 300,
+              }}
+            >
               An Executive Roundtable · Lunch
             </span>
           </div>
 
           {/* Main Title - Position: left:100px top:325px */}
-          <div className="absolute left-[20px] md:left-[50px] lg:left-[100px] top-[220px] md:top-[275px] lg:top-[325px] max-w-[calc(100%-40px)] md:max-w-[700px] lg:max-w-[900px]">
-            <h1 className="leading-[1.15]">
-              <span className="block font-black text-[28px] md:text-[38px] lg:text-[48px] text-[#F5AB40]">
+          <div className="absolute left-[20px] md:left-[50px] lg:left-[100px] top-[200px] md:top-[275px] lg:top-[325px] max-w-[calc(100%-40px)] md:max-w-[700px] lg:max-w-[900px]">
+            <h1 className="leading-[1.2]">
+              <span className="block font-black text-[30px] md:text-[38px] lg:text-[48px] text-[#F5AB40]">
                 The Skills That Matter Next:
               </span>
-              <span className="block font-medium text-[28px] md:text-[38px] lg:text-[48px] text-[#F5AB40] mt-[6px] md:mt-[8px]">
+              <span className="block font-medium text-[30px] md:text-[38px] lg:text-[48px] text-[#F5AB40] mt-[4px] md:mt-[8px]">
                 Preparing Your Workforce
               </span>
-              <span className="block font-medium text-[28px] md:text-[38px] lg:text-[48px] text-[#F5AB40]">
+              <span className="block font-medium text-[30px] md:text-[38px] lg:text-[48px] text-[#F5AB40]">
                 & Leaders for the AI Era
               </span>
             </h1>
           </div>
 
           {/* Date - Position: left:100px top:545px */}
-          <div className="absolute left-[20px] md:left-[50px] lg:left-[100px] top-[420px] md:top-[480px] lg:top-[545px] flex items-center gap-[12px] md:gap-[16px]">
+          <div className="absolute left-[20px] md:left-[50px] lg:left-[100px] top-[430px] md:top-[480px] lg:top-[545px] flex items-center gap-[10px] md:gap-[16px]">
             <svg
               width="20"
               height="23"
               viewBox="0 0 24 27"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="md:w-[24px] md:h-[27px]"
+              className="md:w-[24px] md:h-[27px] flex-shrink-0"
             >
               <path
                 d="M19 3H18V1H16V3H8V1H6V3H5C3.89 3 3 3.9 3 5V21C3 22.1 3.89 23 5 23H19C20.1 23 21 22.1 21 21V5C21 3.9 20.1 3 19 3ZM19 21H5V10H19V21ZM19 8H5V5H19V8Z"
                 fill="white"
               />
             </svg>
-            <span className="font-black text-[20px] md:text-[26px] lg:text-[30px] text-white leading-none">
+            <span className="font-black text-[18px] md:text-[26px] lg:text-[30px] text-white leading-none">
               February 20, 2026
             </span>
           </div>
 
           {/* Location - Position: left:100px top:605px */}
-          <div className="absolute left-[20px] md:left-[50px] lg:left-[100px] top-[455px] md:top-[525px] lg:top-[605px] flex items-center gap-[12px] md:gap-[16px] max-w-[calc(100%-40px)]">
+          <div className="absolute left-[20px] md:left-[50px] lg:left-[100px] top-[470px] md:top-[525px] lg:top-[605px] flex items-center gap-[10px] md:gap-[16px] max-w-[calc(100%-40px)]">
             <svg
               width="20"
               height="25"
@@ -110,7 +142,7 @@ export default function Home() {
                 fill="white"
               />
             </svg>
-            <span className="font-black text-[18px] md:text-[24px] lg:text-[30px] text-white leading-none">
+            <span className="font-black text-[17px] md:text-[24px] lg:text-[30px] text-white leading-none">
               Chamberlain's Steak & Fish House, Dallas
             </span>
           </div>
@@ -121,17 +153,17 @@ export default function Home() {
       <section className="w-full max-w-[1440px] mx-auto bg-white pt-[30px] md:pt-[40px] lg:pt-[50px] pb-[15px] md:pb-[18px] lg:pb-[20px]">
         <div className="px-[20px] md:px-[50px] lg:px-[100px]">
           {/* RSVP Form - Input and Button */}
-          <div className="flex flex-col md:flex-row items-stretch md:items-center gap-[15px] md:gap-[20px] lg:gap-[25px]">
+          <div className="flex flex-col md:flex-row items-start md:items-stretch gap-[10px] md:gap-[20px] lg:gap-[25px] max-w-full md:max-w-none">
             {/* Email Input */}
-            <div className="relative w-full md:w-[450px] lg:w-[600px] h-[70px] md:h-[75px] lg:h-[80px]">
+            <div className="relative w-full md:w-[450px] lg:w-[600px] h-[50px] md:h-[75px] lg:h-[80px]">
               <input
                 type="email"
                 placeholder="Enter your work email to confirm your attendance"
-                className="w-full h-full px-[20px] pl-[55px] md:pl-[60px] text-[16px] md:text-[17px] lg:text-[18px] font-normal text-gray-600 border-2 border-gray-300 rounded-[8px] focus:outline-none focus:border-[#f5ab40]"
+                className="w-full h-full px-[15px] pl-[46px] md:pl-[60px] text-[13px] md:text-[17px] lg:text-[18px] font-normal text-gray-600 border-2 border-gray-300 rounded-[8px] focus:outline-none focus:border-[#f5ab40]"
               />
               {/* Email Icon */}
               <svg
-                className="absolute left-[18px] md:left-[20px] top-1/2 -translate-y-1/2 w-[22px] h-[22px] md:w-[24px] md:h-[24px] text-gray-400"
+                className="absolute left-[14px] md:left-[20px] top-1/2 -translate-y-1/2 w-[18px] h-[18px] md:w-[24px] md:h-[24px] text-gray-400"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -146,9 +178,9 @@ export default function Home() {
             {/* RSVP Button */}
             <a
               href="mailto:siham.aba@simplilearn.net?subject=RSVP%20for%20Simplilearn%20Dallas%20Round%20Table&body=I%20would%20like%20to%20confirm%20my%20attendance%20at%20the%20Simplilearn%20Dallas%20Round%20Table%20event%20on%20February%2020%2C%202026."
-              className="w-full md:w-[200px] lg:w-[250px] h-[70px] md:h-[75px] lg:h-[80px] rounded-[8px] flex items-center justify-center bg-[#f5ab40] hover:bg-[#e09a35] transition-colors"
+              className="inline-flex md:w-[200px] lg:w-[250px] h-[50px] md:h-[75px] lg:h-[80px] px-[40px] rounded-[8px] items-center justify-center bg-[#f5ab40] hover:bg-[#e09a35] transition-colors"
             >
-              <span className="font-bold text-[24px] md:text-[26px] lg:text-[28px] text-white">RSVP Now</span>
+              <span className="font-bold text-[17px] md:text-[26px] lg:text-[28px] text-white">RSVP Now</span>
             </a>
           </div>
         </div>
@@ -307,8 +339,19 @@ export default function Home() {
       {/* Takeaways Section */}
       <section className="w-full max-w-[1440px] mx-auto bg-white relative overflow-hidden">
         <div className="flex flex-col lg:flex-row items-stretch">
-          {/* Left Content */}
-          <div className="flex-1 px-[20px] md:px-[50px] lg:pl-[70px] lg:pr-[70px] py-[35px] md:py-[45px] lg:py-[55px]">
+          {/* Image - Shows first on mobile, second on desktop */}
+          <div className="w-full lg:w-[450px] h-[300px] lg:h-auto relative flex-shrink-0 overflow-hidden lg:order-2">
+            <Image
+              src={assets.insightsBg}
+              alt="AI and technology visualization"
+              width={450}
+              height={450}
+              className="object-cover object-center w-full h-full scale-110"
+            />
+          </div>
+          
+          {/* Content - Shows second on mobile, first on desktop */}
+          <div className="flex-1 px-[20px] md:px-[50px] lg:pl-[70px] lg:pr-[70px] py-[35px] md:py-[45px] lg:py-[55px] lg:order-1">
             {/* Title */}
             <h2 className="font-black text-[26px] md:text-[33px] lg:text-[40px] text-[#f5ab40] leading-normal mb-[25px] md:mb-[33px] lg:mb-[40px]">
               Go behind the curtain with real examples and high-scale insights
@@ -333,31 +376,21 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* Right Image - Fixed width, full height */}
-          <div className="w-full lg:w-[450px] h-[300px] lg:h-auto relative flex-shrink-0 overflow-hidden">
-            <Image
-              src={assets.insightsBg}
-              alt="AI and technology visualization"
-              width={450}
-              height={450}
-              className="object-cover object-center w-full h-full scale-110"
-            />
-          </div>
         </div>
 
         {/* RSVP Form at bottom */}
         <div className="px-[20px] md:px-[50px] lg:px-[100px] pb-[35px] md:pb-[45px] lg:pb-[55px]">
-          <div className="flex flex-col md:flex-row items-stretch md:items-center gap-[15px] md:gap-[20px] lg:gap-[25px] max-w-full lg:max-w-[900px]">
+          <div className="flex flex-col md:flex-row items-start md:items-stretch gap-[10px] md:gap-[20px] lg:gap-[25px] max-w-full lg:max-w-[900px]">
             {/* Email Input */}
-            <div className="relative flex-1 h-[65px] md:h-[68px] lg:h-[70px]">
+            <div className="relative w-full md:flex-1 h-[50px] md:h-[68px] lg:h-[70px]">
               <input
                 type="email"
                 placeholder="Enter your work email to confirm your attendance"
-                className="w-full h-full px-[18px] md:px-[20px] pl-[50px] md:pl-[53px] lg:pl-[55px] text-[15px] md:text-[15.5px] lg:text-[16px] text-gray-500 border border-gray-300 rounded-[8px] focus:outline-none focus:border-[#f5ab40]"
+                className="w-full h-full px-[15px] md:px-[20px] pl-[46px] md:pl-[53px] lg:pl-[55px] text-[13px] md:text-[15.5px] lg:text-[16px] text-gray-500 border-2 border-gray-300 md:border rounded-[8px] focus:outline-none focus:border-[#f5ab40]"
               />
               {/* Email Icon */}
               <svg
-                className="absolute left-[16px] md:left-[17px] lg:left-[18px] top-1/2 -translate-y-1/2 w-[18px] h-[18px] md:w-[19px] md:h-[19px] lg:w-[20px] lg:h-[20px] text-gray-400"
+                className="absolute left-[14px] md:left-[17px] lg:left-[18px] top-1/2 -translate-y-1/2 w-[18px] h-[18px] md:w-[19px] md:h-[19px] lg:w-[20px] lg:h-[20px] text-gray-400"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -372,9 +405,9 @@ export default function Home() {
             {/* RSVP Button */}
             <a
               href="mailto:siham.aba@simplilearn.net?subject=RSVP%20for%20Simplilearn%20Dallas%20Round%20Table&body=I%20would%20like%20to%20confirm%20my%20attendance%20at%20the%20Simplilearn%20Dallas%20Round%20Table%20event%20on%20February%2020%2C%202026."
-              className="w-full md:w-[200px] lg:w-[250px] h-[65px] md:h-[68px] lg:h-[70px] rounded-[8px] flex items-center justify-center bg-[#f5ab40] hover:bg-[#e09a35] transition-colors flex-shrink-0"
+              className="inline-flex md:w-[200px] lg:w-[250px] h-[50px] md:h-[68px] lg:h-[70px] px-[40px] rounded-[8px] items-center justify-center bg-[#f5ab40] hover:bg-[#e09a35] transition-colors flex-shrink-0"
             >
-              <span className="font-bold text-[20px] md:text-[22px] lg:text-[24px] text-white">RSVP Now</span>
+              <span className="font-bold text-[17px] md:text-[22px] lg:text-[24px] text-white">RSVP Now</span>
             </a>
           </div>
         </div>
@@ -427,24 +460,24 @@ export default function Home() {
 
         <div className="relative z-10">
           {/* RSVP Section */}
-          <div className="px-[20px] md:px-[50px] lg:px-[100px] pt-[40px] md:pt-[55px] lg:pt-[70px] pb-[30px] md:pb-[40px] lg:pb-[50px]">
+          <div className="px-[20px] md:px-[50px] lg:px-[100px] pt-[30px] md:pt-[55px] lg:pt-[70px] pb-[20px] md:pb-[40px] lg:pb-[50px]">
             {/* "Space is limited." */}
-            <p className="font-black text-[26px] md:text-[31px] lg:text-[36px] text-white leading-normal mb-[25px] md:mb-[33px] lg:mb-[40px]">
+            <p className="font-black text-[20px] md:text-[31px] lg:text-[36px] text-white leading-normal mb-[18px] md:mb-[33px] lg:mb-[40px]">
               Space is limited.
             </p>
 
             {/* RSVP Form - Input and Button */}
-            <div className="flex flex-col md:flex-row items-stretch md:items-center gap-[15px] md:gap-[20px] lg:gap-[25px] max-w-full lg:max-w-[1000px]">
+            <div className="flex flex-col md:flex-row items-start md:items-stretch gap-[10px] md:gap-[20px] lg:gap-[25px] max-w-full lg:max-w-[1000px]">
               {/* Email Input */}
-              <div className="relative flex-1 h-[68px] md:h-[72px] lg:h-[75px]">
+              <div className="relative w-full md:flex-1 h-[50px] md:h-[72px] lg:h-[75px]">
                 <input
                   type="email"
                   placeholder="Enter your work email to confirm your attendance"
-                  className="w-full h-full px-[18px] md:px-[20px] pl-[54px] md:pl-[58px] lg:pl-[60px] text-[16px] md:text-[17px] lg:text-[18px] font-normal text-gray-600 bg-white border-none rounded-[8px] focus:outline-none"
+                  className="w-full h-full px-[15px] md:px-[20px] pl-[46px] md:pl-[58px] lg:pl-[60px] text-[13px] md:text-[17px] lg:text-[18px] font-normal text-gray-600 bg-white border-2 border-gray-300 md:border-none rounded-[8px] focus:outline-none"
                 />
                 {/* Email Icon */}
                 <svg 
-                  className="absolute left-[18px] md:left-[20px] top-1/2 -translate-y-1/2 w-[24px] h-[24px] md:w-[26px] md:h-[26px] lg:w-[28px] lg:h-[28px] text-gray-400"
+                  className="absolute left-[14px] md:left-[20px] top-1/2 -translate-y-1/2 w-[18px] h-[18px] md:w-[26px] md:h-[26px] lg:w-[28px] lg:h-[28px] text-gray-400"
                   viewBox="0 0 24 24" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
@@ -456,28 +489,28 @@ export default function Home() {
               {/* RSVP Button */}
               <a
                 href="mailto:siham.aba@simplilearn.net?subject=RSVP%20for%20Simplilearn%20Dallas%20Round%20Table&body=I%20would%20like%20to%20confirm%20my%20attendance%20at%20the%20Simplilearn%20Dallas%20Round%20Table%20event%20on%20February%2020%2C%202026."
-                className="w-full md:w-[200px] lg:w-[250px] h-[68px] md:h-[72px] lg:h-[75px] rounded-[8px] flex items-center justify-center bg-[#f5ab40] hover:bg-[#e09a35] transition-colors flex-shrink-0"
+                className="inline-flex md:w-[200px] lg:w-[250px] h-[50px] md:h-[72px] lg:h-[75px] px-[40px] rounded-[8px] items-center justify-center bg-[#f5ab40] hover:bg-[#e09a35] transition-colors flex-shrink-0"
               >
-                <span className="font-bold text-[22px] md:text-[24px] lg:text-[26px] text-white">RSVP Now</span>
+                <span className="font-bold text-[17px] md:text-[24px] lg:text-[26px] text-white">RSVP Now</span>
               </a>
             </div>
           </div>
 
           {/* Footer */}
           <div className="px-[20px] md:px-[50px] lg:px-[100px] py-[25px] md:py-[33px] lg:py-[40px]">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-[20px] md:gap-[30px]">
+            <div className="flex flex-col items-start md:flex-row md:items-center md:justify-between gap-[15px] md:gap-[30px]">
               {/* Logo */}
-              <div className="w-[180px] md:w-[210px] lg:w-[240px] h-[56px] md:h-[66px] lg:h-[75px] relative">
+              <div className="w-[140px] md:w-[210px] lg:w-[240px] h-[44px] md:h-[66px] lg:h-[75px] relative">
                 <Image
                   src={assets.logo}
                   alt="Simplilearn"
                   fill
-                  className="object-contain"
+                  className="object-contain object-left"
                 />
               </div>
 
               {/* Copyright */}
-              <p className="font-normal text-[14px] md:text-[16px] lg:text-[18px] text-white text-center md:text-right">
+              <p className="font-normal text-[12px] md:text-[16px] lg:text-[18px] text-white text-left md:text-right">
                 © 2009-2025 - Simplilearn Solutions. All Rights Reserved.
               </p>
             </div>
